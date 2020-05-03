@@ -14,12 +14,13 @@ var User=require('./models/user');
 var methodOverride=require('method-override');
 var flash=require('connect-flash');
 require('dotenv').config();
+var PORT=process.env.PORT || 8080;
 
 //Now moment is available for use in all of your view files via the variable named moment. 
 //app.locals store local vars within the application
 app.locals.moment=require('moment');// used to show created time
 
-mongoose.connect('mongodb://localhost/campgrounds',{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false});
+mongoose.connect(process.env.DB_URL,{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false});
 // seedDB(); // sample data
 
 var commentRoute=require('./routes/comment');
@@ -58,7 +59,7 @@ app.use('/campgrounds',campgroundRoute);
 app.use('/',indexRoute);
 app.use('/user/:username_id',profileRoute);
 
-app.listen(8080,function(){
+app.listen(PORT,function(){
 	console.log("Server has started!");
 });
 
