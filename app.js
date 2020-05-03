@@ -20,7 +20,7 @@ var PORT=process.env.PORT || 8080;
 //app.locals store local vars within the application
 app.locals.moment=require('moment');// used to show created time
 //mongodb+srv://admin:<password>@cluster0-7tqsg.mongodb.net/test?retryWrites=true&w=majority
-mongoose.connect(process.env.DB_URL,{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false});
+mongoose.connect('mongodb+srv://admin:admin@cluster0-7tqsg.mongodb.net/test?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false});
 // seedDB(); // sample data
 
 var commentRoute=require('./routes/comment');
