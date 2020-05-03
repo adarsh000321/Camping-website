@@ -1,0 +1,82 @@
+body{
+    background: #000;
+}
+
+#home-header{
+    z-index: 1;
+    position: relative; /*change position from static(default) in order to use z-index */
+    text-align: center;
+    padding-top: 40vh;
+}
+
+#home-header h1{
+    color: #fff;
+}
+
+/*The viewport is the user's visible area of a web page*/
+.slideshow{
+    position: fixed;/*fixed(positioned relative to viewport) even if the page is scrolled*/
+    width: 100%;
+    height: 100%;
+    top:0; /*make top:0 left:0 to place images at the corner of the page*/
+    left:0; 
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li{
+    position: absolute;/*positioned relative to the nearest positioned ancestor*/
+    width: 100%;
+    height: 100%;
+    top:0; /*make top:0 left:0 to place images at the corner of the page*/
+    left:0; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%; /*starting position of image*/
+    z-index: 0;
+    opacity: 0;/*initially invisibel images so it can fade-in slowly */
+    animation: imageAnimation 50s linear infinite;
+}
+
+.slideshow li:nth-child(1){
+    background-image: url('https://images.pexels.com/photos/2376989/pexels-photo-2376989.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+.slideshow li:nth-child(2){
+    background-image: url('https://images.pexels.com/photos/2603681/pexels-photo-2603681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    animation-delay: 10s;
+}
+.slideshow li:nth-child(3){
+    background-image: url('https://images.pexels.com/photos/1840394/pexels-photo-1840394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    animation-delay: 20s;
+}
+.slideshow li:nth-child(4){
+    background-image: url('https://images.pexels.com/photos/176381/pexels-photo-176381.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    animation-delay: 30s;
+}
+.slideshow li:nth-child(5){
+    background-image: url('https://images.pexels.com/photos/587976/pexels-photo-587976.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    animation-delay: 40s;
+}
+@keyframes imageAnimation{
+    0%{
+        opacity: 0;
+        animation-timing-function: ease-in; /*when start time come, it fades in slowly*/
+    }
+    10%{
+        opacity: 1;
+        animation-timing-function: ease-out;/*when end time come, it fades out slowly*/
+    }
+    20%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 0;
+    }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

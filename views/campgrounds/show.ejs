@@ -1,0 +1,68 @@
+<%- include('../partials/header')-%>
+
+    <div class='row'>
+        <div class="col-md-3">
+            <p class='lead'>YelpCamp</p>
+            <div class='list-group'>
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item ">Info 1</li>
+                <li class="list-group-item ">Info 1</li>
+            </div>
+            <div id="mapContainer"></div>
+        </div>
+        <div class='col-md-9'>
+            <div class="thumbnail">
+                <img class='img-responsive' src="<%= campground.url %>">
+                <div class='caption-full'>
+                    <h4 class="pull-right">$<%=campground.price%>/night</h4>
+                    <h4><a><%= campground.name %></a></h4>
+                    <p><%= campground.desc %></p>
+                    <p>
+                        <em>Submitted By <a href="/user/<%=campgroundUser%>"><%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em>
+                    </p>
+                    <% if(user && campground.author.id.equals(user._id) || user && user.isAdmin){ %>
+                    <a href="/campgrounds/<%=campground._id%>/edit" class="btn btn-xs btn-warning">Edit</a>
+                    <form id="delete-button" action="/campgrounds/<%=campground._id%>?_method=delete" method="POST">
+                        <button class="btn btn-xs btn-danger">Delete</button>
+                    </form>
+                    <% } %>
+                </div>
+            </div>
+            <div class='well'>
+                <div class='text-right'>
+                    <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
+                </div>
+                <hr>
+                <% campground.comments.forEach(function(comment){ %>
+                    <div class='row'>
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %> </strong>
+                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                            <p> <%= comment.text %> </p>
+                            <% if(user && comment.author.id.equals(user._id) || user && user.isAdmin){ %>
+                            <a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit" class="btn btn-xs btn-warning">Edit</a>
+                            <form action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=delete" method='post' id="delete-button">
+                                <button class="btn btn-xs btn-danger">Delete</button>
+                            </form>
+                            <% } %>
+                        </div>
+                    </diV>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+    <script>
+        var platform = new H.service.Platform({
+            'apikey':'<%= process.env.MAP_API %>'
+        });
+        var loc={
+            lat:'<%=campground.lat%>',
+            lng:'<%=campground.lng%>'
+        }
+        var defaultLayers = platform.createDefaultLayers();
+        var map = new H.Map(document.getElementById('mapContainer'),defaultLayers.vector.normal.map,{zoom: 11,center: { lng: loc.lng, lat: loc.lat }});
+        var ui = H.ui.UI.createDefault(map, defaultLayers);
+        map.addObject(new H.map.Marker(loc));
+    </script>
+
+<%- include('../partials/footer')-%>

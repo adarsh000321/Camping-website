@@ -1,0 +1,61 @@
+.thumbnail img{
+    width:100%;
+}
+
+.thumbnail{
+    padding:0;
+}
+
+.thumbnail .caption-full{
+    padding:9px;
+}
+
+#more-info{
+    margin-bottom: 9px;
+}
+
+#delete-button{
+    display: inline;
+}
+
+.edit_new_comment{
+    max-width:30%;
+    margin:25px auto;
+}
+
+.username{
+    float: right;
+    margin-top:150px; 
+}
+.necessary{
+    color: red;
+}
+
+.userAvatar{
+    width: 270px;
+    height: 180px;
+}
+
+#divider {
+    border-top: 2px solid black;
+}
+
+.editInfoUser{
+    margin-left: 38px;
+    margin-top: 50px;
+    margin-bottom:20px; 
+}
+ul{
+    list-style: none;
+}
+/* label{
+     width: 200px;
+} */
+.campgroundLinks{
+    margin-right: 20px;
+}
+
+#mapContainer{
+    height: 400px;
+    width: 100%;
+}

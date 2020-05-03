@@ -1,0 +1,45 @@
+<%- include('./partials/header')-%>
+
+<div class="row">
+        <h1 class='text-center'>Sign Up</h1>
+        <div style='max-width:30%; margin:25px auto;'>
+            <form action="/register" method="post" accept-charset="utf-8">
+                <div class='form-group'>
+                    <label>Username: <span class="necessary">*<span></span></label>
+                    <input class='form-control' type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class='form-group'>
+                        <label>Password: <span class="necessary">*<span></span></label>
+                        <input class='form-control' type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class='form-group'>
+                        <label>First Name: <span class="necessary">*<span></span></label>
+                    <input class='form-control' type="text" name="firstname" placeholder="First Name"register>
+                </div>
+                <div class='form-group'>
+                        <label>Last Name: <span class="necessary">*<span></span></label>
+                    <input class='form-control' type="text" name="lastname" placeholder="Last Name" required>
+                </div>
+                <div class='form-group'>
+                        <label>Email: <span class="necessary">*<span></span></label>
+                    <input class='form-control' type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class='form-group'>
+                        <label>Avatar URL:</label>
+                    <input class='form-control' type="text" name="avatar" placeholder="Avatar URL">
+                </div>
+                <div class='form-group'>
+                        <label>Admin Code:</label>
+                    <input class='form-control' type="text" name="adminCode" placeholder="Enter Code">
+                </div>
+
+                <div class='form-group'>
+                    <button class='btn btn-primary btn-lg btn-block'>Submit</button>
+                </div>
+            </form>
+            <a href="/campgrounds">Go Back!</a>
+            <a href="/forgot" class="pull-right">Forgot Password!</a>
+        </div>
+</div>
+
+<%- include('./partials/footer')-%>

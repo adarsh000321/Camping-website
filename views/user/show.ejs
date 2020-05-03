@@ -1,0 +1,50 @@
+<%-include('../partials/header')-%>
+    <div class="container">
+        <div>
+            <img src="<%=usere.avatar && usere.avatar.length>0 ? usere.avatar : '/images/user.png'%>" class="userAvatar">
+            <h1 class="username"><%=usere.firstname%> <%=usere.lastname%></h1>
+        </div>
+        <hr id="divider">
+        <div>
+            <ul>
+                <li class="form-group row">
+                    <label class="col-md-3">Username:</label>
+                    <span class="col-md-9"><%=usere.username%></span>
+                </li>
+                <hr>
+                <li class="form-group row">
+                    <label class="col-md-3">First Name:</label>
+                    <span class="col-md-9"><%=usere.firstname%></span>
+                </li>
+                <hr>
+                <li class="form-group row">
+                    <label class="col-md-3">Last Name:</label>
+                    <span class="col-md-9"><%=usere.lastname%></span>
+                </li>
+                <hr>
+                <li class="form-group row">
+                    <label class="col-md-3">Email:</label>
+                    <span class="col-md-9"><%=usere.email%></span>
+                </li>
+                <hr>
+                <li class="form-group row">
+                    <label class="col-md-3">Avatar URL:</label>
+                    <span class="col-md-9"><%=usere.avatar && usere.avatar.length>0 ? usere.avatar.substring(0,100)+' ...' : 'N/A'%></span>
+                </li>
+                <hr>
+                <li class="form-group row">
+                    <label class="col-md-3">Campgrounds Posted:</label>
+                    <div class="col-md-9">
+                        <% campgrounds.forEach(function(campground){ %>
+                            <a href="/campgrounds/<%=campground._id%>" class="campgroundLinks"><%=campground.name%></a>
+                        <% }); %>
+                    </div>
+                </li>
+            </ul>
+            <% if(currentUser && currentUser.username===usere.username){ %>
+                <a href="/user/<%=usere.username%>/edit" class="btn btn-primary editInfoUser">Edit Info</a>
+            <% } %>
+        </div>
+
+    </div>
+<%-include('../partials/footer')-%>
