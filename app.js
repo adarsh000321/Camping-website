@@ -19,7 +19,7 @@ var PORT=process.env.PORT || 8080;
 //Now moment is available for use in all of your view files via the variable named moment. 
 //app.locals store local vars within the application
 app.locals.moment=require('moment');// used to show created time
-
+//mongodb+srv://admin:<password>@cluster0-7tqsg.mongodb.net/test?retryWrites=true&w=majority
 mongoose.connect(process.env.DB_URL,{ useNewUrlParser: true,useUnifiedTopology:true,useFindAndModify:false});
 // seedDB(); // sample data
 
