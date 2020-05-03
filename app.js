@@ -89,3 +89,5 @@ app.listen(PORT,function(){
 // 					 {name:"Academy by the Sea",img:"https://images.pexels.com/photos/1840394/pexels-photo-1840394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"},
 // 					 {name:"Beaver Falls",img:"https://images.pexels.com/photos/2603681/pexels-photo-2603681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"},
 // 					 {name:"Best Bunks",img:"https://images.pexels.com/photos/2376989/pexels-photo-2376989.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}];
+// https://images.pexels.com/photos/1371798/pexels-photo-1371798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+// https://images.pexels.com/photos/2412023/pexels-photo-2412023.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260
